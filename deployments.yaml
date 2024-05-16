@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: testapi
+  name: webhook-test
   namespace: test
   labels:
     app: web
@@ -16,20 +16,20 @@ spec:
         app: web
     spec:
       containers:
-      - name: testapi
-        image: divyanshuk/webhook:sample
+      - name: webhook-test
+        Image: divyanshuk/webhook:main46
         env:
-        - name: TENANT_NAME
-          value: tenant_imp
+        - name: WEBHOOK_TEST
+          value: testing-webhook
         ports:
         - containerPort: 443
         volumeMounts:
         - name: certs-volume
           readOnly: true
           mountPath: "/certs"
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
       volumes:
       - name: certs-volume
         secret:
-          secretName: admission-tls
+          secretName: webhook-secret
 
