@@ -10,11 +10,6 @@ COPY validate.py /app
 
 COPY wsgi.py /app
 
-# COPY mycertificate.crt /certs/mycertificate.crt
+ENV WEBHOOK_TEST = "testing-webhook"
 
-# COPY myprivate.key /certs/myprivate.key
-
-ENV TENANT_NAME=elc_tenant
-
-CMD gunicorn --certfile=/certs/webhook.crt --keyfile=/certs/webhook.key --bind 0.0.0.0:443 wsgi:admission_controller
-
+CMD gunicorn --certfile=/certs/mycertificate.crt --keyfile=/certs/myprivate.key --bind 0.0.0.0:443 wsgi:admission_controller
