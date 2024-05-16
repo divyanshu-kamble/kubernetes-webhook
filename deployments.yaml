@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testapi
+  namespace: test
+  labels:
+    app: web
+spec:
+  selector:
+    matchLabels:
+      app: web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: testapi
+        image: divyanshuk/webhook:sample
+        env:
+        - name: TENANT_NAME
+          value: tenant_imp
+        ports:
+        - containerPort: 443
+        volumeMounts:
+        - name: certs-volume
+          readOnly: true
+          mountPath: "/certs"
+        imagePullPolicy: Always
+      volumes:
+      - name: certs-volume
+        secret:
+          secretName: admission-tls
+

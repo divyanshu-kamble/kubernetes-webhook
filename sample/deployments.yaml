@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+  labels:
+    hello: "true"
+spec:
+  selector:
+    matchLabels:
+      app: my-app
+
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: divyanshuk/greet:01
+        env:
+        - name: env_name # the name of the first environmental variable
+          value: "mark"
+        - name: axis # the value of the first environmental variable
+          value: "bank" 
+        - name: name
+          value: "json"
