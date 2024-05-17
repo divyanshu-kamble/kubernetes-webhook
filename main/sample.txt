@@ -1,8 +1,0 @@
-INFO:validate:Processing Deployment
-INFO:validate:Mutating Deployment Tenant_name: tenant_imp
-INFO:validate:Added the patch to the object {'name': 'Tenant_name', 'value': 'tenant_imp'}
-INFO:validate:[{'op': 'add', 'path': '/spec/template/spec/containers/0/env/-', 'value': {'name': 'Tenant_name', 'value': 'tenant_imp'}}]
-INFO:validate:[{'name': 'env_name', 'value': 'mark'}, {'name': 'axis', 'value': 'bank'}, {'name': 'name', 'value': 'json'}]
-INFO:validate:[{'name': 'env_name', 'value': 'mark'}, {'name': 'axis', 'value': 'bank'}, {'name': 'name', 'value': 'json'}]
-INFO:validate:['', 'spec', 'template', 'spec', 'containers', '0', 'env', '-']
-
