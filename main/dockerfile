@@ -14,7 +14,7 @@ COPY wsgi.py /app
 
 # COPY myprivate.key /certs/myprivate.key
 
-ENV TENANT_NAME=elc_tenant
+ENV WEBHOOK_TEST=testing-webhook
 
 CMD gunicorn --certfile=/certs/webhook.crt --keyfile=/certs/webhook.key --bind 0.0.0.0:443 wsgi:admission_controller
 

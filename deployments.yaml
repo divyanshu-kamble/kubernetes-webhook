@@ -17,10 +17,10 @@ spec:
     spec:
       containers:
       - name: testapi
-        image: divyanshuk/webhook:sample
+        image: divyanshuk/webhook:webhook_samplee
         env:
-        - name: TENANT_NAME
-          value: tenant_imp
+        - name: WEBHOOK_TEST
+          value: testing-webhook
         ports:
         - containerPort: 443
         volumeMounts:
